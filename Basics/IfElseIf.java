@@ -1,27 +1,11 @@
-// Given marks of a student, print on the screen:
-
+// Find grade of a student who enters his marks under 100.
 // Grade A if marks >= 90
 // Grade B if marks >= 70
 // Grade C if marks >= 50
 // Grade D if marks >= 35
-// Fail, otherwise.
+// Fail
 
 
-// Example 1
-
-// Input: marks = 95
-
-// Output: Grade A
-
-// Explanation: marks are greater than or equal to 90.
-
-// Example 2
-
-// Input: marks = 14
-
-// Output: Fail
-
-// Explanation: marks are less than 35.
 
 import java.util.Scanner;
 
