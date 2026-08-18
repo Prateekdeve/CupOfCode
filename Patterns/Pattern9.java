@@ -1,56 +1,92 @@
+// import java.util.Scanner;
+
+// public class Pattern9{
+//   public static void main(String[] args) {
+//     int n ;
+//     Scanner sc = new Scanner(System.in);
+//     System.out.print("Enter n:");
+//     n = sc.nextInt();
+
+//     // Star Pyramid Logic
+//     for(int i =0 ;i<n ;i++){
+//       // Spaces
+//       for(int j =0; j<n-i-1 ;j++){
+//         System.out.print(" ");
+//       }
+//       for(int j =0 ; j < 2*i -1 ;j++){
+//         System.out.print("*");
+//       }
+//       for(int j =0 ;j< n-i-1 ;j++){
+//         System.out.print(" ");
+//       }
+//       System.out.println();
+//     }
+
+//     // Upside Pattern
+//     for(int i = n-1 ; i>=0 ;i--){
+//       for(int j = 0; j < n-i-1 ;j++){
+//         System.out.print(" ");
+//       }
+//       // Star
+//       for(int j = 0 ;j < 2*i-1;j++){
+//         System.out.print("*");
+//       }
+//       // Spaces
+//       for(int j=0;j<n-i-1;j++){
+//         System.out.print(" ");
+//       }
+//       System.out.println();
+//     }
+
+
+
+
+// // Target Pattern->
+// //     * 
+// //    ***
+// //   *****
+// //  *******
+// // *********
+// // *********
+// //  *******
+// //   *****
+// //    ***
+// //     *
+//   }
+// }
+
+
+// Optimized - O(n) solution.
 import java.util.Scanner;
 
-public class Pattern9{
-  public static void main(String[] args) {
-    int n ;
-    Scanner sc = new Scanner(System.in);
-    System.out.print("Enter n:");
-    n = sc.nextInt();
+public class Pattern9 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
 
-    // Star Pyramid Logic
-    for(int i =0 ;i<n ;i++){
-      // Spaces
-      for(int j =0; j<n-i-1 ;j++){
-        System.out.print(" ");
-      }
-      for(int j =0 ; j < 2*i -1 ;j++){
-        System.out.print("*");
-      }
-      for(int j =0 ;j< n-i-1 ;j++){
-        System.out.print(" ");
-      }
-      System.out.println();
+        // Total rows = 2*n
+        for (int i = 1; i <= 2 * n; i++) {
+            int stars, spaces;
+
+            if (i <= n) {
+                // Upper pyramid
+                spaces = n - i;
+                stars = 2 * i - 1;
+            } else {
+                // Lower inverted pyramid
+                spaces = i - n-1;
+                stars = 2 * (2 * n - i) + 1;
+            }
+
+            // Print spaces
+            System.out.print(" ".repeat(spaces));
+            // Print stars
+            System.out.print("*".repeat(stars));
+            // Move to next line
+            System.out.println();
+        }
+
+        sc.close();
     }
-
-    // Upside Pattern
-    for(int i = n-1 ; i>=0 ;i--){
-      for(int j = 0; j < n-i-1 ;j++){
-        System.out.print(" ");
-      }
-      // Star
-      for(int j = 0 ;j < 2*i-1;j++){
-        System.out.print("*");
-      }
-      // Spaces
-      for(int j=0;j<n-i-1;j++){
-        System.out.print(" ");
-      }
-      System.out.println();
-    }
-
-
-
-
-// Target Pattern->
-//     * 
-//    ***
-//   *****
-//  *******
-// *********
-// *********
-//  *******
-//   *****
-//    ***
-//     *
-  }
 }
