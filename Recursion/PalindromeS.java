@@ -8,14 +8,22 @@ public class PalindromeS{
     if(s.charAt(i) != s.charAt(j)){
       return false;
     }
-    i = i+1 ;
-    j = j-1;
-    return Palindrome(i ,j ,s);
+    // i = i+1 ;
+    // j = j-1;
+    return Palindrome(i+1 ,j-1 ,s);
   }
   public static void main(String[] args) {
-    boolean checkPalindrome = Palindrome(0 , 3 ,"aabb");
-    System.out.println(checkPalindrome);
+    // boolean checkPalindrome = Palindrome(0 , 3 ,"aabb");
+    // System.out.println(checkPalindrome);
 
+    Scanner sc = new Scanner(System.in); 
+    System.out.print("Enter a string: ");
+    String str = sc.nextLine();        
+
+    boolean checkPalindrome = Palindrome(0, str.length() - 1, str);
+    System.out.println("Is palindrome? " + checkPalindrome);
+
+    sc.close(); 
   }
 }
 
