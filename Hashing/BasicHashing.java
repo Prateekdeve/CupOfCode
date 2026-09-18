@@ -15,7 +15,8 @@ public class BasicHashing{
     }
 
     // Precomputation Frequencies
-    int[] hash = new int[13];
+    // int[] hash = new int[13];
+    int[] hash = new int[100000];
     for(int i =0 ;i<n ;i++){
       hash[arr[i]]++;
     }
