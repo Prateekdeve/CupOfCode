@@ -21,6 +21,11 @@ public class NumberHashsingHashmap{
       freqmp.put(arr[i],freqmp.getOrDefault(arr[i],0)+1);
     }
 
+    // Iterate using for each loop
+    for(var entry: freqmp.entrySet()){
+      System.out.println(entry.getKey()+"->"+entry.getValue());
+    }
+    
     int q;
     System.out.print("Enter number of queries :");
     q= sc.nextInt();
