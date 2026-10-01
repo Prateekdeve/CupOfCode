@@ -1,18 +1,44 @@
 // Given an array of n integers, find the sum of the frequencies of the highest occurring number and lowest occurring number.
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class SumOfHighestAndLowestFreq{
   public static void main(String[] args) {
     int n;
-    System.out.print("Enter the size of the array");
+    System.out.print("Enter the size of the array: ");
     Scanner sc = new Scanner(System.in);
     n = sc.nextInt();
 
     int arr[] = new int[n];
     for(int i = 0;i<n;i++){
+      System.out.print("Enter element:");
       arr[i] = sc.nextInt();
     }
+
+    HashMap<Integer ,Integer> freqMap = new HashMap<>();
+    for(int num:arr){
+      freqMap.put(num ,freqMap.getOrDefault(num ,0)+1);
+    }
+    
+    // Initialize the max and min frequency
+    int maxFreq = Integer.MIN_VALUE;
+    int minFreq = Integer.MAX_VALUE;
+
+
+    // Find highest and smallest frequency
+    for(int freq :freqMap.values()){
+      if(freq >maxFreq){
+        maxFreq = freq;
+      }
+      if(freq <minFreq){
+        minFreq = freq;
+      }
+    }
+
+    // Calculate sum of highest & lowest frequencies
+    int result = maxFreq + minFreq;
+    System.out.println("Sum of maximum and minimum frequencies ="+ result);
 
     sc.close();
 

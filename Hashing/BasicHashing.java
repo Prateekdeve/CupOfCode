@@ -32,5 +32,6 @@ public class BasicHashing{
         System.out.println("Invalid Query!");
       }
     } 
+    sc.close();
   }
 }
