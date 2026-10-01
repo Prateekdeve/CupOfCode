@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -37,6 +37,7 @@ public class NumberHashsingHashmap{
       System.out.println(freqmp.getOrDefault(num, 0));
 
     }
+    sc.close();
   }
 }
 // Target count the frequency of numbers in an array using a hashmap.
