@@ -20,6 +20,8 @@ public class InsertionSort{
       System.out.print(arr[i]+"  ");
     }
     System.out.print(("]"));
+
+    sc.close();
   }
 
   static void Insertionsort(int arr[],int n){
