@@ -1,4 +1,6 @@
 // Merge Sort -> The art of breaking array into equal pieces and the perform sorting using recursion.
+
+// Concept Used -> Recursion
 import java.util.Scanner;
 
 public class MergeSort {
