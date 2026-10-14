@@ -1,4 +1,4 @@
-package CupOfCode.Patterns;
+
 import java.util.Scanner;
 
 public class Patternone {
