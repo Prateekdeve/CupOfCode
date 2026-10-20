@@ -13,7 +13,7 @@ public class FindMissingNumber{
       arr[i] = sc.nextInt();
     }
     
-    int missingElem =findMissingElement(arr ,n);
+    int missingElem =findMissingElementHash(arr ,n);
     System.out.println("Missing number is :"+missingElem);
 
     sc.close();
@@ -32,6 +32,24 @@ public class FindMissingNumber{
       if(flag == 0){
         return i;
       }
+    }
+    return -1;
+  }
+
+  // Better Approach :- Hashing 
+  static int findMissingElementHash(int[] arr ,int n){
+    int[] hash = new int[n+1];
+    // Mark elements present in the array
+    for(int i =0;i< arr.length;i++){
+      hash[arr[i]] =1;
+    }
+    
+    // Find Missing number
+    for(int i=1;i<=n;i++){
+      if(hash[i] == 0){
+        return i;
+      }
+
     }
     return -1;
   }
