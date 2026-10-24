@@ -19,7 +19,7 @@ public class NumberAppearingOnce {
     }
 
     // Brute Force Approach : Linear Search
-    int ans = numAppearOnceMap(arr ,n);
+    int ans = numAppearOnceXOR(arr ,n);
     System.out.print("Number appearing once is "+ans);
 
     sc.close();
@@ -80,5 +80,14 @@ public class NumberAppearingOnce {
       }
     }
     return -1;
+  }
+
+  // Optimal -> XOR
+  static int numAppearOnceXOR(int arr[] ,int n){
+    int xor =0;
+    for(int i=0;i<n;i++){
+      xor = xor ^ arr[i];
+    }
+    return xor;
   }
 }
