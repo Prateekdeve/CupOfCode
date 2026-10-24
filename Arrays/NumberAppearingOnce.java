@@ -17,7 +17,7 @@ public class NumberAppearingOnce {
     }
 
     // Brute Force Approach : Linear Search
-    int ans = numAppearOnceBrute(arr ,n);
+    int ans = numAppearOnceHash(arr ,n);
     System.out.print("Number appearing once is "+ans);
 
     sc.close();
@@ -33,6 +33,28 @@ public class NumberAppearingOnce {
       }
       if(cnt == 1){
         return num;
+      }
+    }
+    return -1;
+  }
+
+  static int numAppearOnceHash(int arr[],int n){
+    int maxi = arr[0];
+    for(int i =0; i< n;i++){
+      maxi = Math.max(maxi ,arr[i]);
+    }
+    // Creating the hash array
+    int[] hash = new int[maxi+1];
+
+    //Store frequencies
+    for(int i =0;i<n;i++){
+      hash[arr[i]]++;
+    }
+
+    // Find elemment occuring once
+    for(int i=0;i<n;i++){
+      if(hash[arr[i]] == 1){
+        return arr[i];
       }
     }
     return -1;
