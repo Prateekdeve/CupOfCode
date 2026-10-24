@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 // Given an array of size n and it contain number that appears twice and a single number that appears once only . 
@@ -17,7 +19,7 @@ public class NumberAppearingOnce {
     }
 
     // Brute Force Approach : Linear Search
-    int ans = numAppearOnceHash(arr ,n);
+    int ans = numAppearOnceMap(arr ,n);
     System.out.print("Number appearing once is "+ans);
 
     sc.close();
@@ -38,6 +40,7 @@ public class NumberAppearingOnce {
     return -1;
   }
 
+  // Better : Using Hash Array
   static int numAppearOnceHash(int arr[],int n){
     int maxi = arr[0];
     for(int i =0; i< n;i++){
@@ -55,6 +58,25 @@ public class NumberAppearingOnce {
     for(int i=0;i<n;i++){
       if(hash[arr[i]] == 1){
         return arr[i];
+      }
+    }
+    return -1;
+  }
+
+  // Better -> Using a Map
+  static int numAppearOnceMap(int arr[] ,int n){
+    HashMap<Integer ,Integer> map = new HashMap<>();
+
+    // Store frequencies
+    for(int i =0 ;i<n ;i++){
+      map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+
+    }
+
+    // Check Frequencies
+    for(Map.Entry<Integer,Integer> entry :map.entrySet()){
+      if(entry.getValue() == 1){
+        return entry.getKey();
       }
     }
     return -1;
