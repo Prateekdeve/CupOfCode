@@ -33,7 +33,7 @@ Follow the topics in this structured order for a smooth and progressive learning
 
 ## 🛠️ Languages & Tools Used
 
-- **Primary Language:** Java / C++ / Python
+- **Primary Language:** Java 
 - **Environment:** Visual Studio Code / Eclipse / Terminal
 - **Version Control:** Git & GitHub
 
