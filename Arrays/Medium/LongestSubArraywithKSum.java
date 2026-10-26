@@ -12,6 +12,7 @@ public class LongestSubArraywithKSum {
     n = sc.nextInt();
 
     int arr[] = new int[n];
+    System.out.print("Enter array elements:");
     for(int i=0;i<n;i++){
       arr[i] = sc.nextInt();
     }
@@ -57,7 +58,7 @@ public class LongestSubArraywithKSum {
       if(prefixSum == k){
         maxLen += 1;
       }
-      
+
       // Check if (sum-k) exists 
       int rem = prefixSum -k;
       if(prefixMap.containsKey(rem)){
@@ -70,6 +71,28 @@ public class LongestSubArraywithKSum {
         prefixMap.put(prefixSum,i);
       }
       
+    }
+    return maxLen;
+  }
+
+  static int LongestSubarraywithKSumSlidWind(int arr[],int n,int k){
+    int left =0;
+    int right =0;
+    long sum = arr[0];
+    int maxLen =0;
+
+    while(right <n){
+      while( left <= right && sum >k){
+        sum -= arr[left];
+        left++;
+      }
+      if(sum == k){
+        maxLen = Math.max(maxLen ,right -left +1);
+      }
+      right++;
+      if(right <n){
+        sum += arr[right];
+      }
     }
     return maxLen;
   }
