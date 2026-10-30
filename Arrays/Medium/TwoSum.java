@@ -31,7 +31,7 @@ public class TwoSum{
   }
 
 
-  // HashMap Approach
+  // HashMap Approach -> Better
   static void TwoSumHashing(int arr[],int n,int target){
     HashMap<Integer ,Integer> map = new HashMap<>();
     for(int i=0;i<n;i++) {
@@ -43,5 +43,25 @@ public class TwoSum{
       map.put(arr[i],i);
     }
     System.out.println("No pair exists");
+  }
+
+  // Optimal Two Pointer Approach
+  static void TwoSumTwoPointerApproach(int arr[] ,int n ,int target){
+    int left =0;
+    int right = n-1;
+
+    while(left < right){
+      int sum = arr[left]+ arr[right];
+      if(sum == target){
+        System.out.println("Pair found at"+ arr[left]+ "and"+arr[right]);
+        return;
+      }
+      if(sum < target){
+        left++;
+      }else{
+        right++;
+      }
+    }
+    System.out.println("No Pairs exists");
   }
 }
