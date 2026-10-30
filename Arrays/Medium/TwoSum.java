@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class TwoSum{
   public static void main(String args[]){
@@ -16,6 +16,8 @@ public class TwoSum{
     int target = sc.nextInt();
     TwoSumBruteForce(arr ,n,target);
   }
+  
+  // Brute force approach 
   static void TwoSumBruteForce(int arr[],int n,int target){
     for(int i=0 ;i<n ;i++){
       for(int j=i+1;j<n;j++){
@@ -26,5 +28,20 @@ public class TwoSum{
       }
     }
     System.out.println("No pair found.");
+  }
+
+
+  // HashMap Approach
+  static void TwoSumHashing(int arr[],int n,int target){
+    HashMap<Integer ,Integer> map = new HashMap<>();
+    for(int i=0;i<n;i++) {
+      int complement = target - arr[i];
+      if(map.containsKey(complement)){
+        System.out.println("Indices for i="+map.get(complement)+"j= "+i);
+        return;
+      }
+      map.put(arr[i],i);
+    }
+    System.out.println("No pair exists");
   }
 }
