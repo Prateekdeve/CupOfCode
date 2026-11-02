@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Scanner;
 
 // Given an array of size n. Find element which comes more than n/2 times.
@@ -14,7 +15,9 @@ public class MajorityElement{
       arr[i] = sc.nextInt();
     }
 
-    MajorityElementBruteForce(arr ,n);
+    // MajorityElementBruteForce(arr ,n);
+    int majorityElem = MajorityElemMapapp(arr ,n);
+    System.out.println("Majority Element is:"+majorityElem);
     sc.close();
   }
   static void MajorityElementBruteForce(int arr[] ,int n){
@@ -35,5 +38,21 @@ public class MajorityElement{
       System.out.println("No such element!");
     }
     
+  }
+
+  // Better approach -> Map 
+  static int MajorityElemMapapp(int arr[] ,int n){
+    HashMap<Integer ,Integer> map = new HashMap<>();
+    for(int i=0;i<n;i++){
+      int freq = map.getOrDefault(arr[i],0)+1;
+      map.put(arr[i] ,freq);
+
+      // Check if immediately it crosses n/2
+      if(freq > n/2){
+        return arr[i];
+      }
+    }
+    // No majority element
+    return -1;
   }
 }
