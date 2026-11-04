@@ -15,10 +15,16 @@ public class MajorityElement{
       arr[i] = sc.nextInt();
     }
 
-    // MajorityElementBruteForce(arr ,n);
-    int majorityElem = MajorityElemMapapp(arr ,n);
-    System.out.println("Majority Element is:"+majorityElem);
+    // // MajorityElementBruteForce(arr ,n);
+    // int majorityElem = MajorityElemMapapp(arr ,n);
+    // System.out.println("Majority Element is:"+majorityElem);
+
+    // Majority Element using Moore's Voting Algo
+    int majorityElement = MajorityVotEl(arr ,n);
+    System.out.println("Majority Element is :"+majorityElement);
     sc.close();
+
+
   }
   static void MajorityElementBruteForce(int arr[] ,int n){
     boolean found = false;
@@ -55,4 +61,36 @@ public class MajorityElement{
     // No majority element
     return -1;
   }
+
+  // Optimal -> Moore's Voting Algorithm
+static int MajorityVotEl(int arr[], int n) {
+    int cnt = 0;
+    int el = 0;
+
+    // Find candidate
+    for (int i = 0; i < n; i++) {
+
+        if (cnt == 0) {
+            cnt = 1;
+            el = arr[i];
+        }
+        else if (arr[i] == el) {
+            cnt++;
+        }
+        else {
+            cnt--;
+        }
+    }
+
+    // Verify candidate
+    int cnt1 = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == el) {
+            cnt1++;
+        }
+    }
+
+    return (cnt1 > n / 2) ? el : -1;
+}
 }
