@@ -15,7 +15,7 @@ public class KadaneAlgoMaxSubArraySum {
       arr[index] = sc.nextInt();
     }
 
-    BruteForceMaxElem(arr ,n);
+    KadaneAlgo(arr ,n);
 
     sc.close();
   }
@@ -50,7 +50,7 @@ public class KadaneAlgoMaxSubArraySum {
         }
       }
     }
-    System.out.println("Max element is "+ maxi);
+    System.out.println("Max sum is "+ maxi);
   }
 
   // Optimal Approach -> Kadane's Algorithm(O(n))
