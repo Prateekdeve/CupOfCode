@@ -13,6 +13,8 @@ public class FindNextPermutation {
     }
 
     FindNextPermutationOptimal(arr ,n);
+
+    sc.close();
   }
   static void FindNextPermutationOptimal(int arr[] ,int n){
     int ind = -1;
@@ -43,5 +45,30 @@ public class FindNextPermutation {
     // Reversing the remaining part.
     reverse(arr ,ind+1 ,n-1);
     printArray(arr);
+  }
+
+  // Swapping array
+  static void swap(int arr[],int i ,int j){
+    int temp  = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
+  // Reverse Function
+  static void reverse(int arr[] ,int start ,int end){
+    while(start<end){
+      swap(arr,start ,end);
+      start++;
+      end--;
+    }
+  }
+
+  // Print array
+  static void printArray(int arr[]){
+    System.out.print("Next Permutation: [");
+    for(int num :arr){
+      System.out.print(num+" ");
+    }
+    System.out.print("]");
   }
 }
