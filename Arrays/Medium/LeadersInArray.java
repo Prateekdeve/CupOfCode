@@ -12,9 +12,9 @@ public class LeadersInArray {
       arr[index] = sc.nextInt(); 
     }
 
-    BruteForceLeaders(arr ,n);
+    //BruteForceLeaders(arr ,n);
 
-    // OptimalFindingLeaders(arr ,n);
+    OptimalFindingLeaders(arr ,n);
     
     sc.close();
   }
@@ -34,5 +34,18 @@ public class LeadersInArray {
       }
     }
     
+  }
+
+  // Optimal approach
+  static void OptimalFindingLeaders(int arr[] ,int n){
+    int maxRight =Integer.MIN_VALUE;
+
+    System.out.print("Leaders are:");
+    for(int i=n-1;i>=0;i--){
+      if(arr[i] >= maxRight){
+        System.out.print(arr[i]+" ");
+        maxRight = arr[i];
+      }
+    }
   }
 }
