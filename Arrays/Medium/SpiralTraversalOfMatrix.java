@@ -29,6 +29,7 @@ public class SpiralTraversalOfMatrix{
     int left =0;
     int right = m-1;
 
+    System.out.print("Printing Spiral Array Traversal Result [");
     while(top <= bottom && left <= right){
 
       // Left to right traversal
@@ -59,13 +60,7 @@ public class SpiralTraversalOfMatrix{
         left++;
       }
     }
-
-    // Printing Spiral Array
-    System.out.println("Spiral Array: ");
-    for(int i=0;i<n;i++){
-      for(int j=0;j<m;j++){
-        System.out.println(arr[i][j]+" ");
-      }
-    }
+    System.out.print("]");
+    
   }
 }
