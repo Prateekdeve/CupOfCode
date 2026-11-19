@@ -15,6 +15,8 @@ public class PascalsTriangle{
 
     sc.close();
   }
+
+  // Combination code for finding element
   static void nCr(int r ,int c){
     long res = 1;
     for(int i=0;i<c ;i++){
@@ -22,6 +24,6 @@ public class PascalsTriangle{
       res = res/(i+1);
 
     }
-    System.out.print("Result is :"+ res);
+    System.out.print("Element is :"+ res);
   }
 }
