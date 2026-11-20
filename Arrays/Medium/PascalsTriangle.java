@@ -12,10 +12,10 @@ public class PascalsTriangle{
     col = sc.nextInt();
 
     // Function ot find element at particular row and column.
-    nCrFindElement(row-1,col-1);
+    //nCrFindElement(row-1,col-1);
 
     // Function to Print a particularRow
-    nCrPrintRow(row-1,col-1);
+    nCrPrintRow(row);
     sc.close();
   }
 
@@ -30,5 +30,17 @@ public class PascalsTriangle{
     System.out.print("Element is :"+ res);
   }
 
-  // B-> 
+  // B-> Print a particular row
+  static void nCrPrintRow(int row){
+    long ans = 1;
+    System.out.print("Row "+row +
+     " :"
+    );
+    for(int col =1;col <= row ;col++){
+      System.out.println(ans+" ");
+      ans = ans *(row -col);
+      ans = ans/col;
+    }
+    System.out.println();
+  }
 }
