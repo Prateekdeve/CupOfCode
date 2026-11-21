@@ -20,10 +20,10 @@ public class PascalsTriangle{
     // Printing the entire Pascal's triangle(Brute Force)
     System.out.println("Enter n:");
     int n = sc.nextInt();
-    PrintPascalTriangleBrute(n);
+    //PrintPascalTriangleBrute(n);
 
     // Printing Pascal's Triangle Optimal
-    //PrintPascalTriangleOptimal(row ,col);
+    PrintPascalTriangleOptimal(n);
     sc.close();
 
   }
@@ -72,5 +72,25 @@ public class PascalsTriangle{
       }
       System.out.println();
     }
+  }
+
+  // C-> Print Pascal's Triangle Optimal Approach 
+  static void PrintPascalTriangleOptimal(int n){
+    System.out.println("Pascal's Triangle (Optimal)");
+    for(int row=1;row<= n;row++){
+      generateRow(row);
+    }
+  }
+
+  // Generating Rows
+  static void generateRow(int row){
+    long ans = 1;
+    System.out.print(ans+" ");
+    for(int col =1;col < row ;col++){
+      ans = ans * (row - col);
+      ans = ans /col;
+      System.out.print(ans+" ");
+    }
+    System.out.println();
   }
 }
