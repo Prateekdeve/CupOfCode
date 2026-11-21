@@ -16,7 +16,16 @@ public class PascalsTriangle{
 
     // Function to Print a particularRow
     nCrPrintRow(row);
+
+    // Printing the entire Pascal's triangle(Brute Force)
+    System.out.println("Enter n:");
+    int n = sc.nextInt();
+    PrintPascalTriangleBrute(n);
+
+    // Printing Pascal's Triangle Optimal
+    //PrintPascalTriangleOptimal(row ,col);
     sc.close();
+
   }
 
   // A -> Combination code for finding element
@@ -42,5 +51,20 @@ public class PascalsTriangle{
       ans = ans/col;
     }
     System.out.println();
+  }
+
+  // nCr Calculation Function
+  static long nCr(int n ,int r){
+    long res =1;
+    for(int i =0;i<r ;i++){
+      res = res*(n-i);
+      res = res / (i+1);
+    }
+    return res;
+  }
+
+  // C-> Print Pascal's triangle Brute-Force
+  static void PrintPascalTriangleBrute(int n){
+    for(int row =1;row <= n;row++)
   }
 }
