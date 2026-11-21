@@ -65,6 +65,12 @@ public class PascalsTriangle{
 
   // C-> Print Pascal's triangle Brute-Force
   static void PrintPascalTriangleBrute(int n){
-    for(int row =1;row <= n;row++)
+    System.out.println("Pascal's Triangle for n ="+n);
+    for(int row =1;row <= n;row++){
+      for(int col =1;col <= row ;col++){
+        System.out.print(nCr(row-1 ,col-1)+" ");
+      }
+      System.out.println();
+    }
   }
 }
