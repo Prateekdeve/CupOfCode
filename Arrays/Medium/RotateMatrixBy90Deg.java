@@ -19,6 +19,7 @@ public class RotateMatrixBy90Deg {
 
     RotateMatrix90DegBrute(n,m ,mat);
 
+    RotateMatrix90DegOptimalSquare(n,mat);
     sc.close();
   }
 
@@ -38,6 +39,41 @@ public class RotateMatrixBy90Deg {
       }
       System.out.println();
     }
+    System.out.print("]");
+  }
+  static void RotateMatrix90DegOptimalSquare(int n ,int mat[][]){
+    // Transposing Matrix
+    for(int i=0;i<n;i++){
+      for(int j =i+1;j<n;j++){
+        int temp = mat[i][j];
+        mat[i][j] = mat[j][i];
+        mat[j][i] = temp;
+      }
+    }
+
+    // Reverse each row
+    for(int i=0;i<n;i++){
+      int left =0;
+      int right = n-1;
+
+      while(left < right){
+        int temp = mat[i][left];
+        mat[i][left] = mat[i][right];
+        mat[i][right] = temp;
+        left ++;
+        right --;
+      }
+    }
+
+    System.out.println("Rotated Matrix:");
+    System.out.print("[");
+    for(int i=0;i<n;i++){
+      for(int j=0;j<n;j++){
+        System.out.print(mat[i][j]+" ");
+      }
+      System.out.println();
+    }
+    System.out.print("]");
     
   }
 }
