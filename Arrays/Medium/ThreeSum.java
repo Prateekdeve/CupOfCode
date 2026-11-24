@@ -66,7 +66,7 @@ public class ThreeSum{
     }else{
       System.out.println("Unique Triplets:");
       for(String triplet: ans){
-        System.out.println(triplet);
+        System.out.println("["+triplet+"]");
       }
     }
   }
