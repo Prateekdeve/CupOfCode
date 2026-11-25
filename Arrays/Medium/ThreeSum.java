@@ -1,7 +1,9 @@
 // Given an array of size n . Return all the unique triplets from it whose sum is equal to 0.
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.Arrays;
 public class ThreeSum{
   public static void main(String args[]){
@@ -19,7 +21,11 @@ public class ThreeSum{
 
     //ThreeSumBrute(arr ,n);
 
-    ThreeSumBetter(arr, n);
+    //ThreeSumBetter(arr, n);
+
+    // Optimal Approach
+    ThreeSumOptimal(arr ,n);
+    sc.close();
   }
 
   static void ThreeSumBrute(int arr[] ,int n){
@@ -67,6 +73,50 @@ public class ThreeSum{
       System.out.println("Unique Triplets:");
       for(String triplet: ans){
         System.out.println("["+triplet+"]");
+      }
+    }
+  }
+
+  // Optimal Approach
+  static void ThreeSumOptimal(int arr[] ,int n){
+    Arrays.sort(arr);
+
+    List<List<Integer>> ans = new ArrayList<>();
+    for(int i =0;i<n;i++){
+
+      // Skip duplicate first element
+      if(i >0 && arr[i] == arr[i-1]){
+        continue;
+      }
+      int left = i+1 ,right = n-1;
+
+      while(left <right){
+        int sum = arr[i]+ arr[left] + arr[right];
+        if(sum <0){left++;}
+        else if(sum >0){right--;}
+        else{
+          ans.add(Arrays.asList(arr[i] ,arr[left],arr[right]));
+          left++;
+          right--;
+
+          // Skip duplicate second elment
+          while(left <right && arr[left] == arr[left-1]){
+            left++;
+          }
+
+          // Skip duplicate third element
+          while(left <right && arr[right] == arr[right+1]){
+            right--;
+          }
+        }
+      }
+    }
+    if(ans.isEmpty()){
+      System.out.println("No Triplets FOund!");
+    }else{
+      System.out.println("Unique Triplets:");
+      for(List<Integer> triplet:ans){
+        System.out.print(triplet);
       }
     }
   }
