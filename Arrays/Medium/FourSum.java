@@ -14,13 +14,14 @@ public class FourSum{
     }
     int target;
     // arr[i]+arr[j]+arr[k]+arr[l] == target
-    System.out.print("Enter target value");
+    System.out.print("Enter target value:");
     target = sc.nextInt();
     BruteForce(arr ,n,target);
 
     sc.close();
   }
 
+  // TC => O(n^4)
   static void BruteForce(int arr[],int n,int target){
     boolean found = false;
     for(int i=0;i<n-3;i++){
